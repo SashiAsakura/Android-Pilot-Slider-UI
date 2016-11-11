@@ -7,15 +7,15 @@ import java.util.ArrayList;
  */
 
 public class ListItemFactory {
-    private static ArrayList<ListItem> items = new ArrayList<>();
+    private static ArrayList<AbstractListItem> items = new ArrayList<>();
     private static ListItemFactory instance = new ListItemFactory();
 
     private ListItemFactory() {
-        ListItem item1 = new ListItem("Item 1", 4);
-        ListItem item2 = new ListItem("Item 2", 4);
-        ListItem item3 = new ListItem("Item 3", 4);
-        ListItem item4 = new ListItem("Item 4", 4);
-        ListItem item5 = new ListItem("Item 5", 4);
+        AbstractListItem item1 = new ListOne("Item 1", 4);
+        AbstractListItem item2 = new ListTwo("Item 2", 4);
+        AbstractListItem item3 = new ListOne("Item 3", 4);
+        AbstractListItem item4 = new ListOne("Item 4", 4);
+        AbstractListItem item5 = new ListOne("Item 5", 4);
 
         items.add(item1);
         items.add(item2);
@@ -24,7 +24,7 @@ public class ListItemFactory {
         items.add(item5);
     }
 
-    public static ArrayList<ListItem> getItemList() {
+    public static ArrayList<AbstractListItem> getItemList() {
         return items;
     }
 }

@@ -23,8 +23,8 @@ import github.chenupt.springindicator.viewpager.ScrollerViewPager;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ScrollerViewPager viewPager;
-    private ArrayList<ListItem> items;
-    private ListItem currentItem;
+    private ArrayList<AbstractListItem> items;
+    private AbstractListItem currentItem;
 
 
     @Override
@@ -43,14 +43,14 @@ public class MainActivity extends AppCompatActivity
          */
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         Menu menu = navigationView.getMenu();
-        menu.findItem(R.id.list_item_one).setTitle(this.items.get(0).getItemName());
-        menu.findItem(R.id.list_item_two).setTitle(this.items.get(1).getItemName());
-        menu.findItem(R.id.list_item_three).setTitle(this.items.get(2).getItemName());
-        menu.findItem(R.id.list_item_four).setTitle(this.items.get(3).getItemName());
-        menu.findItem(R.id.list_item_five).setTitle(this.items.get(4).getItemName());
+        menu.findItem(R.id.list_item_one).setTitle(this.items.get(0).getName());
+        menu.findItem(R.id.list_item_two).setTitle(this.items.get(1).getName());
+        menu.findItem(R.id.list_item_three).setTitle(this.items.get(2).getName());
+        menu.findItem(R.id.list_item_four).setTitle(this.items.get(3).getName());
+        menu.findItem(R.id.list_item_five).setTitle(this.items.get(4).getName());
         navigationView.setNavigationItemSelectedListener(this);
 
-        this.setTitle(this.items.get(0).getItemName());
+        this.setTitle(this.items.get(0).getName());
 
         /*
             Toolbar on top right
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         // set activity's title
-        this.setTitle(this.currentItem.getItemName());
+        this.setTitle(this.currentItem.getName());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
